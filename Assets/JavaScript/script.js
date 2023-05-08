@@ -1,9 +1,16 @@
-var APIkey = "1801"
-var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
-//1801 is the api key
-//https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
-api.openweathermap.org/data/2.5/forecast?q={Austin}&appid={1801}
+var APIkey = "ca4d6748746f7b31b9c0e7609d98f397"
+//var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
 
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + {lat}&lon={lon} + "&appid=" + {API key}
+api.openweathermap.org/data/2.5/forecast?q={Austin}&appid={1801}
+ //atlanta: [33.749, -84.388]
+ //denver:
+ //San Francisco
+ //Seattle
+ //Orlando:
+ //New York:
+ //Austin:
+ //Chicago:
 fetch(queryURL)
 
 var getRepoIssues = function (repo) {
@@ -24,3 +31,9 @@ var getRepoIssues = function (repo) {
       }
     });
   };
+
+  //Questions:
+  //How to connect css to my default browser
+  //I can't seem to get my api link to work
+  //confirm the apikey
+  //
