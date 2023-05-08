@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="/Assets/css/style.css"/>
-    <link rel="stylesheet" href="/Assets/javascript/script.js"/>
+    <link rel="stylesheet" href="./Assets/css/style.css"/>
+
     <title>Document</title>
 </head>
 <header class="dashboard">
@@ -22,22 +22,24 @@
           <h1 class="text-primary">Search Engine:</h1>
           <form id="search-form" class="form w-100">
             <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-            <select id="format-input" class="form-input w-100">
+            <!-- <select id="format-input" class="form-input w-100">
               <option value="" disabled selected>Select a city...</option>
-              <option value="atlanta">Atlanta</option>
-              <option value="denver">Denver</option>
+              <option value="atlanta">Atlanta</option> -->
+              <!--class=""-->
+              <!-- <option value="denver">Denver</option>
               <option value="san-francisco">San Francisco</option>
               <option value="seattle">Seattle</option>
               <option value="orlando">Orlando</option>
               <option value="new-york">New York</option>
-              <option value="atlanta">Austin</option>
+              <option value="austin">Austin</option>
               <option value="chicago">Chicago</option>
-            </select>
-            <button class="btn btn-info btn-block">Click Me</button>
+            </select> -->
+            <button type="submit" class="btn btn-info btn-block">Click Me</button>
           </form>
         </div>
+        <div class="row" id="current" style="border: 15px solid black"></div>
       </div>
     
-    
+    <script src="./Assets/javascript/script.js"></script>
 </body>
 </html>

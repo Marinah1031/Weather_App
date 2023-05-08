@@ -1,39 +1,32 @@
 var APIkey = "ca4d6748746f7b31b9c0e7609d98f397"
-//var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + APIKey;
+var searchForm = document.getElementById("search-form")
 
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + {lat}&lon={lon} + "&appid=" + {API key}
-api.openweathermap.org/data/2.5/forecast?q={Austin}&appid={1801}
- //atlanta: [33.749, -84.388]
- //denver:
- //San Francisco
- //Seattle
- //Orlando:
- //New York:
- //Austin:
- //Chicago:
-fetch(queryURL)
+function getLatLon (city) {
+    console.log (city)
+    var geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
+    fetch (geoURL).then (response => response.json ()).then (data => {
+        var cityname = data[0].name
+        var lat = data[0].lat
+        var lon = data[0].lon
+        getTodayWeather (cityname, lat, lon)
+    })
+}
+ function getTodayWeather (cityname, lat, lon) {
+    var weatherURL = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`
+    fetch (weatherURL).then (response => response.json ()).then (data => {
+        console.log (data)
+        var titleEl = document.createElement("div")
+        titleEl.textContent = cityname 
+        document.getElementById ("current").appendChild(titleEl);
 
-var getRepoIssues = function (repo) {
-    var apiUrl = 'https://api.github.com/repos/' + repo + '/issues?direction=asc';
-  
-    fetch(queryUrl).then(function (response) {
-      if (response.ok) {
-        response.json().then(function (weather) {
-          displayIssues(weather);
-  
-          // Since GitHub only returns 30 results at a time, we check to see if there's more than 30 by looking for a next page URL in the response headers.
-          if (response.headers.get('Link')) {
-            displayWarning(repo);
-          }
-        });
-      } else {
-        document.location.replace('./index.html');
-      }
-    });
-  };
+    })
+ }
+//create element, fill with with value, appened it to page
 
-  //Questions:
-  //How to connect css to my default browser
-  //I can't seem to get my api link to work
-  //confirm the apikey
-  //
+
+
+searchForm.addEventListener("submit",function (event) {
+    event.preventDefault()
+    var searchTerm = document.getElementById("search-input").value
+    getLatLon(searchTerm)
+})
