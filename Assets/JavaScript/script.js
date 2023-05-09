@@ -22,6 +22,8 @@ function getLatLon (city) {
     })
  }
 //create element, fill with with value, appened it to page
+//traversy media DOM Manipulation
+//vanilla js for complete beginners
 
 
 
