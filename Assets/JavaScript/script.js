@@ -8,7 +8,8 @@ function getLatLon (city) {
         var cityname = data[0].name
         var lat = data[0].lat
         var lon = data[0].lon
-        getTodayWeather (cityname, lat, lon)
+        var temp = data[0].temp
+        getTodayWeather (cityname, lat, lon, temp)
     })
 }
  function getTodayWeather (cityname, lat, lon) {
@@ -17,10 +18,16 @@ function getLatLon (city) {
         console.log (data)
         var titleEl = document.createElement("div")
         titleEl.textContent = cityname 
-        document.getElementById ("current").appendChild(titleEl);
+        document.getElementById ("current").
+        appendChild(titleEl);
+
+        var temperature = document.createElement("div")
+        temperature.textContent = temperature 
+        document.getElementById ("current").appendChild(temperature);
 
     })
  }
+ 
 //create element, fill with with value, appened it to page
 //traversy media DOM Manipulation
 //vanilla js for complete beginners
@@ -32,3 +39,4 @@ searchForm.addEventListener("submit",function (event) {
     var searchTerm = document.getElementById("search-input").value
     getLatLon(searchTerm)
 })
+
