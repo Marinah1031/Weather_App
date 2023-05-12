@@ -1,24 +1,45 @@
 var APIkey = "ca4d6748746f7b31b9c0e7609d98f397"
 var searchForm = document.getElementById("search-form")
 
+
 function saveCity(city) {
-    localStorage.setItem('city', city);
+    var cityHistory = JSON.parse(localStorage.getItem("cityHistory")) || []; // Get the search history list from Local Storage or create a new array if it doesn't exist
+    console.log(cityHistory);
+    if (!cityHistory.includes(city)) { // Check if the city is already in the search history
+      cityHistory.push(city); // Add the city to the search history
+      localStorage.setItem("cityHistory", JSON.stringify(cityHistory)); // Save the updated search history to Local Storage
+    }
+  }
+
+  function displayLocalStorage() {
+    var localStorageKeys = Object.keys(localStorage);
+    for (var i = 0; i < localStorageKeys.length; i++) {
+      var key = localStorageKeys[i];
+      var value = localStorage.getItem(key);
+      console.log(key + " = " + value);
+    }
   }
   
-
-function getLatLon(city) {
+  displayLocalStorage();
+  
+  
+  function getLatLon(city) {
     console.log(city)
     var geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
-    fetch(geoURL).then(response => response.json()).then(data => {
+    fetch(geoURL)
+      .then(response => response.json())
+      .then(data => {
         var cityname = data[0].name
         console.log(data[0])
         var lat = data[0].lat
         var lon = data[0].lon
-        getTodayWeather(cityname, lat, lon)
-    })
-}
+        saveCity(cityname); // Save the city to local storage
+        getTodayWeather(cityname, lat, lon);
+      })
+  }
+  
 function getTodayWeather(cityname, lat, lon) {
-    saveCity(cityname)
+    
     var weatherURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`
     fetch(weatherURL).then(response => response.json()).then(data => {
         var currentDiv = document.getElementById("current")
@@ -30,22 +51,22 @@ function getTodayWeather(cityname, lat, lon) {
         currentDiv.appendChild(titleDiv)
 
         var titleEl = document.createElement("div")
-        titleEl.textContent = "City: " + cityname
+        titleEl.textContent = "City: " + cityname;
         currentDiv.appendChild(titleEl);
 
         var temperature = document.createElement("div")
-        temperature.textContent = "Temperature: " + data.list[0].main.temp
+        temperature.textContent = "Temperature: " + data.list[0].main.temp;
         currentDiv.appendChild(temperature);
 
         var humidity = document.createElement("div")
-        humidity.textContent = "Humidity: " + data.list[0].main.humidity
+        humidity.textContent = "Humidity: " + data.list[0].main.humidity;
         currentDiv.appendChild(humidity);
 
-        var icon = document.createElement("img")
-        icon.src = "https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@2x.png"
-        currentDiv.appendChild(icon)
+        var icon = document.createElement("img");
+        icon.src = "https://openweathermap.org/img/wn/" + data.list[0].weather[0].icon + "@2x.png";
+        currentDiv.appendChild(icon);
 
-        fiveDayForecast(data)
+        fiveDayForecast(data);
     })
 }
 
@@ -93,9 +114,7 @@ function fiveDayForecast(forecastData) {
     }
 }
 
-function loadCity(city) {
-    return localStorage.getItem('city', city);
-  }
+
   
 //create another container and append it to each one to that container, append that container to the forecastDiv instead of appending each item to forecastDiv
 //*utilize loop
