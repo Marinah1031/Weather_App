@@ -10,36 +10,39 @@
 
     <title>Document</title>
 </head>
-<header class="dashboard">
+
+<body>
+
+  <header class="dashboard">
     <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
     <h1 class="app-title"> Weather Dashboard</h1>
-    
+    </div>
 
 </header>
-<body>
     <div class="flex-row align-center justify-space-between min-100-vh bg-primary">
-        <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
+        <div class="col-12 col-md-9 flex-column align-center bg-light p-5 text-center">
           <h1 class="text-primary">Search Engine:</h1>
           <form id="search-form" class="form w-100">
-            <input id="search-input" class="form-input w-100" type="text" placeholder="Search!">
-            <!-- <select id="format-input" class="form-input w-100">
+            <input id="search-input" class="form-input w-100" type="text" placeholder="Search a city...">
+             <!--<select id="format-input" class="form-input w-100">
               <option value="" disabled selected>Select a city...</option>
-              <option value="atlanta">Atlanta</option> -->
-              <!--class=""-->
-              <!-- <option value="denver">Denver</option>
+              <option value="atlanta" type="submit">Atlanta</option> 
+               <option value="denver">Denver</option>
               <option value="san-francisco">San Francisco</option>
               <option value="seattle">Seattle</option>
               <option value="orlando">Orlando</option>
               <option value="new-york">New York</option>
               <option value="austin">Austin</option>
               <option value="chicago">Chicago</option>
-            </select> -->
+            </select>-->
             <button type="submit" class="btn btn-info btn-block">Click Me</button>
           </form>
         </div>
         <div class="row" id="current" style="border: 1px solid black"></div>
         <div class="row" id="forecast" style="border: 1px solid black"></div>
       </div>
+
+    </header>
     
     <script src="./Assets/javascript/script.js"></script>
 </body>
