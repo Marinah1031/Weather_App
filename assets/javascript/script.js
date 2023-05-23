@@ -25,7 +25,7 @@ function saveCity(city) {
   
   function getLatLon(city) {
     console.log(city)
-    var geoURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
+    var geoURL = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`
     fetch(geoURL)
       .then(response => response.json())
       .then(data => {
@@ -40,7 +40,7 @@ function saveCity(city) {
   
 function getTodayWeather(cityname, lat, lon) {
     
-    var weatherURL = `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`
+    var weatherURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=imperial&appid=${APIkey}`
     fetch(weatherURL).then(response => response.json()).then(data => {
         var currentDiv = document.getElementById("current")
         console.log(data)
