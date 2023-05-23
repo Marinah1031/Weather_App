@@ -1,4 +1,4 @@
-var APIkey = "ca4d6748746f7b31b9c0e7609d98f397"
+var APIkey = "ca4d6748746f7b31b9c0e7609d98f397"  //Weather api 
 var searchForm = document.getElementById("search-form")
 
 
