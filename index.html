@@ -1,31 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-    <link rel="stylesheet" href="./Assets/css/style.css"/>
 
-    <title>Document</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+
+  <title>Document</title>
 </head>
 
 <body>
 
   <header class="dashboard">
     <div class="col-12 col-md-9 flex-column align-center bg-light p-5">
-    <h1 class="app-title"> Weather Dashboard</h1>
+      <h1 class="app-title"> Weather Dashboard</h1>
     </div>
 
 
-</header>
-    <div class="flex-row align-center justify-space-between min-100-vh bg-primary">
-        <div class="col-12 col-md-9 flex-column align-center bg-light p-5 text-center">
-          <h1 class="text-primary">Search Engine:</h1>
-          <form id="search-form" class="form w-100">
-            <input id="search-input" class="form-input w-100" type="text" placeholder="Search a city...">
-             <!--<select id="format-input" class="form-input w-100">
+  </header>
+  <div class="flex-row align-center justify-space-between min-100-vh bg-primary">
+    <div class="col-12 col-md-9 flex-column align-center bg-light p-5 text-center">
+      <h1 class="text-primary">Search Engine:</h1>
+      <form id="search-form" class="form w-100">
+        <input id="search-input" class="form-input w-100" type="text" placeholder="Search a city...">
+        <!--<select id="format-input" class="form-input w-100">
               <option value="" disabled selected>Select a city...</option>
               <option value="atlanta" type="submit">Atlanta</option> 
               <option value="denver">Denver</option>
@@ -36,20 +37,21 @@
               <option value="austin">Austin</option>
               <option value="chicago">Chicago</option>
             </select>-->
-            <button type="submit" class="btn btn-info btn-block">Click Me</button>
-          </form>
-          <div id="history">
-            <h2>Search History</h2>
-          </div>
-          
-          
-        </div>
-        <div class="row" id="current" style="border: 1px solid black"></div>
-        <div class="row" id="forecast" style="border: 1px solid black"></div>
+        <button type="submit" class="btn btn-info btn-block">Click Me</button>
+      </form>
+      <div id="history">
+        <h2>Search History</h2>
       </div>
 
-    </header>
-    
-    <script src="./Assets/javascript/script.js"></script>
+
+    </div>
+    <div class="row" id="current" style="border: 1px solid black"></div>
+    <div class="row" id="forecast" style="border: 1px solid black"></div>
+  </div>
+
+
+  <!--change directions-->
+  <script src="assets/javascript/script.js"></script>
 </body>
+
 </html>
